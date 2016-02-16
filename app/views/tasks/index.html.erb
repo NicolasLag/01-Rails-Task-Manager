@@ -1,0 +1,13 @@
+<h1>Tasks#index</h1>
+<p>will show as soon as I have a task</p>
+
+<ul>
+<% @tasks.each do |task| %>
+  <li>
+    <%= task.name %> | <%= task.done %> ( <%= link_to "Delete", task_path(task),
+      method: :delete, data: { confirm: "Are you sure?" } %> | <%= link_to "Update", edit_task_path(task) %> )
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "New", new_task_path %>
